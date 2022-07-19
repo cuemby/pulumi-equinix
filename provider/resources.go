@@ -12,27 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package equinix
 
 import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/cuemby/pulumi-equinix/provider/pkg/version"
+	"github.com/equinix/terraform-provider-equinix/equinix"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi-xyz/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/terraform-providers/terraform-provider-xyz/xyz"
 )
 
 // all of the token components used below.
 const (
 	// This variable controls the default name of the package in the package
 	// registries for nodejs and python:
-	mainPkg = "xyz"
+	mainPkg = "equinix"
 	// modules:
-	mainMod = "index" // the xyz module
+	mainMod = "index" // the equinix module
 )
 
 // preConfigureCallback is called before the providerConfigure function of the underlying provider.
@@ -46,41 +46,41 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(xyz.Provider())
+	p := shimv2.NewProvider(equinix.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
 		P:    p,
-		Name: "xyz",
+		Name: "equinix",
 		// DisplayName is a way to be able to change the casing of the provider
 		// name when being displayed on the Pulumi registry
-		DisplayName: "",
+		DisplayName: "Equinix",
 		// The default publisher for all packages is Pulumi.
 		// Change this to your personal name (or a company name) that you
 		// would like to be shown in the Pulumi Registry if this package is published
 		// there.
-		Publisher: "Pulumi",
+		Publisher: "Cuemby",
 		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
 		// if this package is published there.
 		//
 		// You may host a logo on a domain you control or add an SVG logo for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL: "",
+		LogoURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Equinix_logo.svg/1200px-Equinix_logo.svg.png",
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g https://github.com/org/pulumi-provider-name/releases/
 		PluginDownloadURL: "",
-		Description:       "A Pulumi package for creating and managing xyz cloud resources.",
+		Description:       "A Pulumi package for creating and managing equinix cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{"pulumi", "xyz", "category/cloud"},
+		Keywords:   []string{"pulumi", "equinix", "category/cloud"},
 		License:    "Apache-2.0",
-		Homepage:   "https://www.pulumi.com",
-		Repository: "https://github.com/pulumi/pulumi-xyz",
+		Homepage:   "https://www.cuemby.com",
+		Repository: "https://github.com/cuemby/pulumi-equinix",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this
 		// should match the TF provider module's require directive, not any replace directives.
-		GitHubOrg: "",
+		GitHubOrg: "equinix",
 		Config:    map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
@@ -92,7 +92,7 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi type. Two examples
 			// are below - the single line form is the common case. The multi-line form is
 			// needed only if you wish to override types or other default options.
@@ -105,11 +105,72 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: tfbridge.MakeType(mainPkg, "Tags")},
 			// 	},
 			// },
+			"equinix_ecx_12_connection": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Ecx12Connection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"uuid": {Type: tfbridge.MakeType(mainPkg, mainMod, "Uuid")},
+				},
+			},
+			"equinix_ecx_l2_connection_accepter": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Ecxl2ConnectionAccepter")},
+			"equinix_ecx_l2_serviceprofile":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Ecxl2Serviceprofile")},
+			"equinix_metal_bgp_session":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalBgpSession")},
+			"equinix_metal_connection":           {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalConnection")},
+			"equinix_metal_device":               {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalDevice")},
+			"equinix_metal_device_network_type":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalDeviceNetworkType")},
+			"equinix_metal_gateway":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalGateway")},
+			"equinix_metal_ip_attachment":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalIpAttachment")},
+			"equinix_metal_organization":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalOrganization")},
+			"equinix_metal_port":                 {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalPort")},
+			"equinix_metal_port_vlan_attachment": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalPortVlanAttachment")},
+			"equinix_metal_project":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalProject")},
+			"equinix_metal_project_api_key":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalProjectApiKey")},
+			"equinix_metal_project_ssh_key":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalProjectSshKey")},
+			"equinix_metal_reserved_ip_block":    {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalReservedIpBlock")},
+			"equinix_metal_spot_market_request":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalSpotMarketRequest")},
+			"equinix_metal_ssh_key":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalSshKey")},
+			"equinix_metal_user_api_key":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalUserApiKey")},
+			"equinix_metal_virtual_circuit":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalVirtualCircuit")},
+			"equinix_metal_vlan":                 {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalVlan")},
+			"equinix_metal_vrf":                  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "MetalVrf")},
+			"equinix_network_acl_template":       {Tok: tfbridge.MakeResource(mainPkg, mainMod, "NetworkAclTemplate")},
+			"equinix_network_bgp":                {Tok: tfbridge.MakeResource(mainPkg, mainMod, "NetworkBgp")},
+			"equinix_network_device":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "NetworkDevice")},
+			"equinix_network_device_link":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "NetworkDeviceLink")},
+			"equinix_network_ssh_key":            {Tok: tfbridge.MakeResource(mainPkg, mainMod, "NetworkSshKey")},
+			"equinix_network_ssh_user":           {Tok: tfbridge.MakeResource(mainPkg, mainMod, "NetworkSshUser")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example
 			// is below.
 			// "aws_ami": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getAmi")},
+			"equinix_ecx_l2_sellerprofile":       {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "Ecxl2Sellerprofile")},
+			"equinix_ecx_l2_sellerprofiles":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "Ecxl2Sellerprofiles")},
+			"equinix_ecx_port":                   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "EcxPort")},
+			"equinix_metal_device":               {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalDevice")},
+			"equinix_metal_device_bgp_neighbors": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalDeviceBgpNeighbors")},
+			"equinix_metal_facility":             {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalFacility")},
+			"equinix_metal_gateway":              {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalGateway")},
+			"equinix_metal_hardware_reservation": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalHardwareReservation")},
+			"equinix_metal_ip_block_ranges":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalIpBlockRanges")},
+			"equinix_metal_metro":                {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalMetro")},
+			"equinix_metal_operating_system":     {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalOperatingSystem")},
+			"equinix_metal_organization":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalOrganization")},
+			"equinix_metal_plans":                {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalPlans")},
+			"equinix_metal_port":                 {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalPort")},
+			"equinix_metal_precreated_ip_block":  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalPrecreatedIpBlock")},
+			"equinix_metal_project":              {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalProject")},
+			"equinix_metal_project_ssh_key":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalProjectSshKey")},
+			"equinix_metal_reserved_ip_block":    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalReservedIpBlock")},
+			"equinix_metal_spot_market_price":    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalSpotMarketPrice")},
+			"equinix_metal_spot_market_request":  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalSpotMarketRequest")},
+			"equinix_metal_virtual_circuit":      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalVirtualCircuit")},
+			"equinix_metal_vlan":                 {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalVlan")},
+			"equinix_metal_vrf":                  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "MetalVrf")},
+			"equinix_network_account":            {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "NetworkAccount")},
+			"equinix_network_device":             {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "NetworkDevice")},
+			"equinix_network_device_platform":    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "NetworkDevicePlatform")},
+			"equinix_network_device_software":    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "NetworkDeviceSoftware")},
+			"equinix_network_device_type":        {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "NetworkDeviceType")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
