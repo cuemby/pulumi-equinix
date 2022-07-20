@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * // Create a new VLAN in facility "sv15"
  * const vlan1MetalVlan = new equinix.MetalVlan("vlan1MetalVlan", {

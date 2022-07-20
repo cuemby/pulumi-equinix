@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * const web1 = new equinix.MetalDevice("web1", {
  *     hostname: "tf.coreos2",
@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * const pxe1 = new equinix.MetalDevice("pxe1", {
  *     hostname: "tf.coreos2-pxe",
@@ -54,7 +54,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * const web1 = new equinix.MetalDevice("web1", {
  *     hostname: "tf.coreos2",
@@ -74,7 +74,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * const web1 = new equinix.MetalDevice("web1", {
  *     hostname: "tftest",

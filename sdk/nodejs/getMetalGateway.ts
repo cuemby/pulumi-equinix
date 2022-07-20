@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * // Create Metal Gateway for a VLAN with a private IPv4 block with 8 IP addresses

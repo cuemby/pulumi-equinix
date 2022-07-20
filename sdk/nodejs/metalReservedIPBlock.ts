@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * // Allocate /31 block of max 2 public IPv4 addresses in Silicon Valley (sv15) facility for myproject
  * const twoElasticAddresses = new equinix.MetalReservedIPBlock("twoElasticAddresses", {
@@ -53,7 +53,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * // Allocate /31 block of max 2 public IPv4 addresses in Silicon Valley (sv15) facility
  * const example = new equinix.MetalReservedIPBlock("example", {

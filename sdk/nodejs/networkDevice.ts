@@ -28,6 +28,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const dc = equinix.GetNetworkAccount({
@@ -67,6 +68,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const sv = equinix.GetNetworkAccount({

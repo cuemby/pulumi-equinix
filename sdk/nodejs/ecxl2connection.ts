@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const aws = equinix.GetECXL2Sellerprofile({
@@ -42,6 +43,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const gcp-1 = equinix.GetECXL2Sellerprofile({
@@ -66,6 +68,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const gcp = equinix.GetECXL2Sellerprofile({
@@ -89,6 +92,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const sv-qinq-pri = equinix.GetECXPort({

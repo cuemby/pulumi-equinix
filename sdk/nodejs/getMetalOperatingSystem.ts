@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const example = equinix.GetMetalOperatingSystem({

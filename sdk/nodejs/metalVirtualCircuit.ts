@@ -17,6 +17,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as equinix from "@cuemby/equinix";
  * import * as equinix from "@pulumi/equinix";
  *
  * const projectId = "52000fb2-ee46-4673-93a8-de2c2bdba33c";

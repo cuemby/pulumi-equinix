@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as equinix from "@pulumi/equinix";
+ * import * as equinix from "@cuemby/equinix";
  *
  * const projectId = "<UUID_of_your_project>";
  * const testMetalProjectSSHKey = new equinix.MetalProjectSSHKey("testMetalProjectSSHKey", {
