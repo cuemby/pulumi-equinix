@@ -15,7 +15,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'equinix', PLUGIN_VERSION])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'equinix', PLUGIN_VERSION, '--server', 'https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print(f"""
@@ -37,7 +37,7 @@ def readme():
         return "equinix Pulumi Package - Development Version"
 
 
-setup(name='pulumi_equinix',
+setup(name='cuemby_equinix',
       version=VERSION,
       description="A Pulumi package for creating and managing equinix cloud resources.",
       long_description=readme(),
@@ -53,7 +53,7 @@ setup(name='pulumi_equinix',
       license='Apache-2.0',
       packages=find_packages(),
       package_data={
-          'pulumi_equinix': [
+          'cuemby_equinix': [
               'py.typed',
               'pulumi-plugin.json',
           ]

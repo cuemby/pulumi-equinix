@@ -184,6 +184,7 @@ func Provider() tfbridge.ProviderInfo {
 			PackageName: fmt.Sprintf("@cuemby/%s", mainPkg),
 		},
 		Python: &tfbridge.PythonInfo{
+			PackageName: fmt.Sprintf("cuemby_%s", mainPkg),
 			// List any Python dependencies and their version ranges
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
@@ -191,7 +192,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/cuemby/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
@@ -199,6 +200,7 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RootNamespace: "Cuemby",
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},

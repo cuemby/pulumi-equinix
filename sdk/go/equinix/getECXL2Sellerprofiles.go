@@ -19,6 +19,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -44,6 +45,7 @@ import (
 // }
 // ```
 func GetECXL2Sellerprofiles(ctx *pulumi.Context, args *GetECXL2SellerprofilesArgs, opts ...pulumi.InvokeOption) (*GetECXL2SellerprofilesResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetECXL2SellerprofilesResult
 	err := ctx.Invoke("equinix:index/getECXL2Sellerprofiles:GetECXL2Sellerprofiles", args, &rv, opts...)
 	if err != nil {

@@ -22,6 +22,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -41,6 +42,7 @@ import (
 // }
 // ```
 func GetNetworkAccount(ctx *pulumi.Context, args *GetNetworkAccountArgs, opts ...pulumi.InvokeOption) (*GetNetworkAccountResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetNetworkAccountResult
 	err := ctx.Invoke("equinix:index/getNetworkAccount:GetNetworkAccount", args, &rv, opts...)
 	if err != nil {

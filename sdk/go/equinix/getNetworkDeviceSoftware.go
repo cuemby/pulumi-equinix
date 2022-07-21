@@ -20,6 +20,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -42,6 +43,7 @@ import (
 // }
 // ```
 func GetNetworkDeviceSoftware(ctx *pulumi.Context, args *GetNetworkDeviceSoftwareArgs, opts ...pulumi.InvokeOption) (*GetNetworkDeviceSoftwareResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetNetworkDeviceSoftwareResult
 	err := ctx.Invoke("equinix:index/getNetworkDeviceSoftware:GetNetworkDeviceSoftware", args, &rv, opts...)
 	if err != nil {

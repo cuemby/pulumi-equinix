@@ -22,6 +22,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -124,6 +125,7 @@ func NewMetalConnection(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalConnection
 	err := ctx.RegisterResource("equinix:index/metalConnection:MetalConnection", name, args, &resource, opts...)
 	if err != nil {

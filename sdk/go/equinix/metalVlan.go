@@ -24,7 +24,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -83,6 +83,7 @@ func NewMetalVlan(ctx *pulumi.Context,
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalVlan
 	err := ctx.RegisterResource("equinix:index/metalVlan:MetalVlan", name, args, &resource, opts...)
 	if err != nil {

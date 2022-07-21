@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -105,6 +106,7 @@ func NewMetalSpotMarketRequest(ctx *pulumi.Context,
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalSpotMarketRequest
 	err := ctx.RegisterResource("equinix:index/metalSpotMarketRequest:MetalSpotMarketRequest", name, args, &resource, opts...)
 	if err != nil {

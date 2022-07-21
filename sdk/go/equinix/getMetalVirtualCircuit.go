@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -44,6 +45,7 @@ import (
 // }
 // ```
 func LookupMetalVirtualCircuit(ctx *pulumi.Context, args *LookupMetalVirtualCircuitArgs, opts ...pulumi.InvokeOption) (*LookupMetalVirtualCircuitResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalVirtualCircuitResult
 	err := ctx.Invoke("equinix:index/getMetalVirtualCircuit:GetMetalVirtualCircuit", args, &rv, opts...)
 	if err != nil {

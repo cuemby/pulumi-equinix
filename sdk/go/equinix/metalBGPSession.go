@@ -42,6 +42,7 @@ func NewMetalBGPSession(ctx *pulumi.Context,
 	if args.DeviceId == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalBGPSession
 	err := ctx.RegisterResource("equinix:index/metalBGPSession:MetalBGPSession", name, args, &resource, opts...)
 	if err != nil {

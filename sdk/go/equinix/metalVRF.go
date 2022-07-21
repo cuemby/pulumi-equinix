@@ -52,6 +52,7 @@ func NewMetalVRF(ctx *pulumi.Context,
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalVRF
 	err := ctx.RegisterResource("equinix:index/metalVRF:MetalVRF", name, args, &resource, opts...)
 	if err != nil {

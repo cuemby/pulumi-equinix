@@ -29,7 +29,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -81,7 +81,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -192,6 +192,7 @@ func NewMetalPortVlanAttachment(ctx *pulumi.Context,
 	if args.VlanVnid == nil {
 		return nil, errors.New("invalid value for required argument 'VlanVnid'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalPortVlanAttachment
 	err := ctx.RegisterResource("equinix:index/metalPortVlanAttachment:MetalPortVlanAttachment", name, args, &resource, opts...)
 	if err != nil {

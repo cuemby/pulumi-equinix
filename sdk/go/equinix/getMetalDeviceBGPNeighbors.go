@@ -24,6 +24,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -42,6 +43,7 @@ import (
 // }
 // ```
 func GetMetalDeviceBGPNeighbors(ctx *pulumi.Context, args *GetMetalDeviceBGPNeighborsArgs, opts ...pulumi.InvokeOption) (*GetMetalDeviceBGPNeighborsResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalDeviceBGPNeighborsResult
 	err := ctx.Invoke("equinix:index/getMetalDeviceBGPNeighbors:GetMetalDeviceBGPNeighbors", args, &rv, opts...)
 	if err != nil {

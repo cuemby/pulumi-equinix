@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Equinix
+namespace Cuemby.Equinix
 {
     /// <summary>
     /// Provides a resource to manage organization resource in Equinix Metal.
@@ -16,7 +17,7 @@ namespace Pulumi.Equinix
     /// 
     /// ```csharp
     /// using Pulumi;
-    /// using Equinix = Pulumi.Equinix;
+    /// using Equinix = Cuemby.Equinix;
     /// 
     /// class MyStack : Stack
     /// {
@@ -114,6 +115,7 @@ namespace Pulumi.Equinix
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

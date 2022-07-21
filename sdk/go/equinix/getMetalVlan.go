@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -49,6 +50,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -68,6 +70,7 @@ import (
 // }
 // ```
 func LookupMetalVlan(ctx *pulumi.Context, args *LookupMetalVlanArgs, opts ...pulumi.InvokeOption) (*LookupMetalVlanResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalVlanResult
 	err := ctx.Invoke("equinix:index/getMetalVlan:GetMetalVlan", args, &rv, opts...)
 	if err != nil {

@@ -46,6 +46,7 @@ func NewMetalDeviceNetworkType(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalDeviceNetworkType
 	err := ctx.RegisterResource("equinix:index/metalDeviceNetworkType:MetalDeviceNetworkType", name, args, &resource, opts...)
 	if err != nil {

@@ -66,6 +66,7 @@ func NewMetalPort(ctx *pulumi.Context,
 	if args.PortId == nil {
 		return nil, errors.New("invalid value for required argument 'PortId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalPort
 	err := ctx.RegisterResource("equinix:index/metalPort:MetalPort", name, args, &resource, opts...)
 	if err != nil {

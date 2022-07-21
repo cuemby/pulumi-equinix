@@ -63,6 +63,7 @@ func NewMetalIPAttachment(ctx *pulumi.Context,
 	if args.DeviceId == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalIPAttachment
 	err := ctx.RegisterResource("equinix:index/metalIPAttachment:MetalIPAttachment", name, args, &resource, opts...)
 	if err != nil {

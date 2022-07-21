@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Equinix
+namespace Cuemby.Equinix
 {
     public static class GetMetalVlan
     {
@@ -23,6 +24,7 @@ namespace Pulumi.Equinix
         /// 
         /// ```csharp
         /// using Pulumi;
+        /// using Equinix = Cuemby.Equinix;
         /// using Equinix = Pulumi.Equinix;
         /// 
         /// class MyStack : Stack
@@ -82,6 +84,7 @@ namespace Pulumi.Equinix
         /// 
         /// ```csharp
         /// using Pulumi;
+        /// using Equinix = Cuemby.Equinix;
         /// using Equinix = Pulumi.Equinix;
         /// 
         /// class MyStack : Stack

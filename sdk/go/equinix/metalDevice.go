@@ -26,7 +26,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -54,7 +54,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -85,6 +85,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -123,7 +124,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -286,6 +287,7 @@ func NewMetalDevice(ctx *pulumi.Context,
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalDevice
 	err := ctx.RegisterResource("equinix:index/metalDevice:MetalDevice", name, args, &resource, opts...)
 	if err != nil {

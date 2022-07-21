@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Equinix
+namespace Cuemby.Equinix
 {
     /// <summary>
     /// The provider type for the equinix package. By default, resources use package-wide configuration
@@ -66,6 +67,7 @@ namespace Pulumi.Equinix
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

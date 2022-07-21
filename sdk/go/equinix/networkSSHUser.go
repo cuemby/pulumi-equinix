@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -78,6 +78,7 @@ func NewNetworkSSHUser(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource NetworkSSHUser
 	err := ctx.RegisterResource("equinix:index/networkSSHUser:NetworkSSHUser", name, args, &resource, opts...)
 	if err != nil {

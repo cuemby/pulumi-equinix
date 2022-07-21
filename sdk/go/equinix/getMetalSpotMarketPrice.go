@@ -20,6 +20,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -44,6 +45,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -62,6 +64,7 @@ import (
 // }
 // ```
 func GetMetalSpotMarketPrice(ctx *pulumi.Context, args *GetMetalSpotMarketPriceArgs, opts ...pulumi.InvokeOption) (*GetMetalSpotMarketPriceResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalSpotMarketPriceResult
 	err := ctx.Invoke("equinix:index/getMetalSpotMarketPrice:GetMetalSpotMarketPrice", args, &rv, opts...)
 	if err != nil {

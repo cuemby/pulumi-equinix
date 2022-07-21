@@ -11,6 +11,7 @@ import (
 )
 
 func LookupMetalSpotMarketRequest(ctx *pulumi.Context, args *LookupMetalSpotMarketRequestArgs, opts ...pulumi.InvokeOption) (*LookupMetalSpotMarketRequestResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalSpotMarketRequestResult
 	err := ctx.Invoke("equinix:index/getMetalSpotMarketRequest:GetMetalSpotMarketRequest", args, &rv, opts...)
 	if err != nil {

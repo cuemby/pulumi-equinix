@@ -52,6 +52,7 @@ func NewNetworkDeviceLink(ctx *pulumi.Context,
 	if args.Devices == nil {
 		return nil, errors.New("invalid value for required argument 'Devices'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource NetworkDeviceLink
 	err := ctx.RegisterResource("equinix:index/networkDeviceLink:NetworkDeviceLink", name, args, &resource, opts...)
 	if err != nil {

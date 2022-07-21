@@ -12,6 +12,7 @@ import (
 
 // Provides an Equinix Metal metro datasource.
 func GetMetalMetro(ctx *pulumi.Context, args *GetMetalMetroArgs, opts ...pulumi.InvokeOption) (*GetMetalMetroResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalMetroResult
 	err := ctx.Invoke("equinix:index/getMetalMetro:GetMetalMetro", args, &rv, opts...)
 	if err != nil {

@@ -15,6 +15,7 @@ import (
 //
 // > VRF features are not generally available. The interfaces related to VRF resources may change ahead of general availability.
 func LookupMetalReservedIPBlock(ctx *pulumi.Context, args *LookupMetalReservedIPBlockArgs, opts ...pulumi.InvokeOption) (*LookupMetalReservedIPBlockResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalReservedIPBlockResult
 	err := ctx.Invoke("equinix:index/getMetalReservedIPBlock:GetMetalReservedIPBlock", args, &rv, opts...)
 	if err != nil {

@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -52,7 +52,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -118,6 +118,7 @@ func NewMetalGateway(ctx *pulumi.Context,
 	if args.VlanId == nil {
 		return nil, errors.New("invalid value for required argument 'VlanId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalGateway
 	err := ctx.RegisterResource("equinix:index/metalGateway:MetalGateway", name, args, &resource, opts...)
 	if err != nil {

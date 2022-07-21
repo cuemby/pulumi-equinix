@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -67,6 +68,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -106,6 +108,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -280,6 +283,7 @@ func NewECXL2Connection(ctx *pulumi.Context,
 	if args.SpeedUnit == nil {
 		return nil, errors.New("invalid value for required argument 'SpeedUnit'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource ECXL2Connection
 	err := ctx.RegisterResource("equinix:index/eCXL2Connection:ECXL2Connection", name, args, &resource, opts...)
 	if err != nil {

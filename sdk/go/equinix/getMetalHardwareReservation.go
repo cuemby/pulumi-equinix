@@ -14,6 +14,7 @@ import (
 //
 // You can look up hardware reservation by its ID or by ID of device which occupies it.
 func GetMetalHardwareReservation(ctx *pulumi.Context, args *GetMetalHardwareReservationArgs, opts ...pulumi.InvokeOption) (*GetMetalHardwareReservationResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalHardwareReservationResult
 	err := ctx.Invoke("equinix:index/getMetalHardwareReservation:GetMetalHardwareReservation", args, &rv, opts...)
 	if err != nil {

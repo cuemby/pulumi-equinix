@@ -11,6 +11,7 @@ import (
 )
 
 func GetMetalPlans(ctx *pulumi.Context, args *GetMetalPlansArgs, opts ...pulumi.InvokeOption) (*GetMetalPlansResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalPlansResult
 	err := ctx.Invoke("equinix:index/getMetalPlans:GetMetalPlans", args, &rv, opts...)
 	if err != nil {

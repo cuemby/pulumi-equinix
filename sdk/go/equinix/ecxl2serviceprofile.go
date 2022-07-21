@@ -24,6 +24,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -209,6 +210,7 @@ func NewECXL2Serviceprofile(ctx *pulumi.Context,
 	if args.VcStatuschangeNotifications == nil {
 		return nil, errors.New("invalid value for required argument 'VcStatuschangeNotifications'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource ECXL2Serviceprofile
 	err := ctx.RegisterResource("equinix:index/eCXL2Serviceprofile:ECXL2Serviceprofile", name, args, &resource, opts...)
 	if err != nil {

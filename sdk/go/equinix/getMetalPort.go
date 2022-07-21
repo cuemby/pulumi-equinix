@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -50,6 +51,7 @@ import (
 // }
 // ```
 func LookupMetalPort(ctx *pulumi.Context, args *LookupMetalPortArgs, opts ...pulumi.InvokeOption) (*LookupMetalPortResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalPortResult
 	err := ctx.Invoke("equinix:index/getMetalPort:GetMetalPort", args, &rv, opts...)
 	if err != nil {

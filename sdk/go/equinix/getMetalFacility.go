@@ -12,6 +12,7 @@ import (
 
 // Provides an Equinix Metal facility datasource.
 func GetMetalFacility(ctx *pulumi.Context, args *GetMetalFacilityArgs, opts ...pulumi.InvokeOption) (*GetMetalFacilityResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalFacilityResult
 	err := ctx.Invoke("equinix:index/getMetalFacility:GetMetalFacility", args, &rv, opts...)
 	if err != nil {

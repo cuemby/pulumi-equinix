@@ -45,6 +45,7 @@ func NewMetalProject(ctx *pulumi.Context,
 		args = &MetalProjectArgs{}
 	}
 
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalProject
 	err := ctx.RegisterResource("equinix:index/metalProject:MetalProject", name, args, &resource, opts...)
 	if err != nil {

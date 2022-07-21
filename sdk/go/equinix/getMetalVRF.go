@@ -20,6 +20,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -37,6 +38,7 @@ import (
 // }
 // ```
 func LookupMetalVRF(ctx *pulumi.Context, args *LookupMetalVRFArgs, opts ...pulumi.InvokeOption) (*LookupMetalVRFResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalVRFResult
 	err := ctx.Invoke("equinix:index/getMetalVRF:GetMetalVRF", args, &rv, opts...)
 	if err != nil {

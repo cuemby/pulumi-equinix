@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Equinix
+namespace Cuemby.Equinix
 {
     public static class Config
     {

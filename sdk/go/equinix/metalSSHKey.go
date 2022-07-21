@@ -23,7 +23,7 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -96,6 +96,7 @@ func NewMetalSSHKey(ctx *pulumi.Context,
 	if args.PublicKey == nil {
 		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalSSHKey
 	err := ctx.RegisterResource("equinix:index/metalSSHKey:MetalSSHKey", name, args, &resource, opts...)
 	if err != nil {

@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -74,6 +74,7 @@ func NewMetalOrganization(ctx *pulumi.Context,
 	if args.Address == nil {
 		return nil, errors.New("invalid value for required argument 'Address'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalOrganization
 	err := ctx.RegisterResource("equinix:index/metalOrganization:MetalOrganization", name, args, &resource, opts...)
 	if err != nil {

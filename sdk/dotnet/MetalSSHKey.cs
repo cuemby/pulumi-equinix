@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Equinix
+namespace Cuemby.Equinix
 {
     /// <summary>
     /// Provides a resource to manage User SSH keys on your Equinix Metal user account. If you create a new device in a project, all the keys of the project's collaborators will be injected to the device.
@@ -19,7 +20,7 @@ namespace Pulumi.Equinix
     /// ```csharp
     /// using System.IO;
     /// using Pulumi;
-    /// using Equinix = Pulumi.Equinix;
+    /// using Equinix = Cuemby.Equinix;
     /// 
     /// class MyStack : Stack
     /// {
@@ -123,6 +124,7 @@ namespace Pulumi.Equinix
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

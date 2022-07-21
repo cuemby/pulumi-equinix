@@ -18,6 +18,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -50,6 +51,7 @@ import (
 // }
 // ```
 func GetMetalOperatingSystem(ctx *pulumi.Context, args *GetMetalOperatingSystemArgs, opts ...pulumi.InvokeOption) (*GetMetalOperatingSystemResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv GetMetalOperatingSystemResult
 	err := ctx.Invoke("equinix:index/getMetalOperatingSystem:GetMetalOperatingSystem", args, &rv, opts...)
 	if err != nil {

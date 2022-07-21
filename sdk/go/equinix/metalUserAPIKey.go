@@ -24,7 +24,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -68,6 +68,7 @@ func NewMetalUserAPIKey(ctx *pulumi.Context,
 	if args.ReadOnly == nil {
 		return nil, errors.New("invalid value for required argument 'ReadOnly'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource MetalUserAPIKey
 	err := ctx.RegisterResource("equinix:index/metalUserAPIKey:MetalUserAPIKey", name, args, &resource, opts...)
 	if err != nil {

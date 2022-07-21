@@ -45,6 +45,7 @@ func NewECXL2ConnectionAccepter(ctx *pulumi.Context,
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
 	}
+	opts = pkgResourceDefaultOpts(opts)
 	var resource ECXL2ConnectionAccepter
 	err := ctx.RegisterResource("equinix:index/eCXL2ConnectionAccepter:ECXL2ConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {

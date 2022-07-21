@@ -22,6 +22,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -45,6 +46,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/cuemby/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi-equinix/sdk/go/equinix"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -63,6 +65,7 @@ import (
 // }
 // ```
 func LookupMetalDevice(ctx *pulumi.Context, args *LookupMetalDeviceArgs, opts ...pulumi.InvokeOption) (*LookupMetalDeviceResult, error) {
+	opts = pkgInvokeDefaultOpts(opts)
 	var rv LookupMetalDeviceResult
 	err := ctx.Invoke("equinix:index/getMetalDevice:GetMetalDevice", args, &rv, opts...)
 	if err != nil {
