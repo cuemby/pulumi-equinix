@@ -53,7 +53,7 @@ namespace Cuemby.Equinix
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/cuemby";
             return dst;
         }
 

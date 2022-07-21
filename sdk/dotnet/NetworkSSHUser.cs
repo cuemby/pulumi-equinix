@@ -99,7 +99,7 @@ namespace Cuemby.Equinix
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}",
+                PluginDownloadURL = "github://api.github.com/cuemby",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

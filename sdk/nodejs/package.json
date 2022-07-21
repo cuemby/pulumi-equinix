@@ -24,6 +24,6 @@
     },
     "pulumi": {
         "resource": true,
-        "pluginDownloadURL": "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}"
+        "pluginDownloadURL": "github://api.github.com/cuemby"
     }
 }

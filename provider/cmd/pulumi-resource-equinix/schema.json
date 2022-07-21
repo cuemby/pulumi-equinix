@@ -12,7 +12,7 @@
     "attribution": "This Pulumi package is based on the [`equinix` Terraform Provider](https://github.com/equinix/terraform-provider-equinix).",
     "repository": "https://github.com/cuemby/pulumi-equinix",
     "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Equinix_logo.svg/1200px-Equinix_logo.svg.png",
-    "pluginDownloadURL": "https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}",
+    "pluginDownloadURL": "github://api.github.com/cuemby",
     "publisher": "Cuemby",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"

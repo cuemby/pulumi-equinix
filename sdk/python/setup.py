@@ -15,7 +15,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'equinix', PLUGIN_VERSION, '--server', 'https://github.com/cuemby/pulumi-equinix/releases/downloads/v${VERSION}'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'equinix', PLUGIN_VERSION, '--server', 'github://api.github.com/cuemby'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print(f"""
