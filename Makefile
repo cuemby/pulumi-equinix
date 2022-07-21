@@ -126,7 +126,7 @@ test::
 	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h
 
 release:
-	git tag -s -a v$(shell pulumictl get version -o) -m ${RELEASE_MSG}
-	git tag -s -a sdk/v$(shell pulumictl get version -o) -m ${RELEASE_MSG}
+	git tag -s -a $(version) -m ${RELEASE_MSG}
+	git tag -s -a sdk/v$(version) -m ${RELEASE_MSG}
 	git push origin --all
 	git push origin --tags
