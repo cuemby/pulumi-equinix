@@ -2,7 +2,10 @@ module equinix-example
 
 go 1.17
 
-require github.com/pulumi/pulumi/sdk/v3 v3.35.3
+require (
+	github.com/cuemby/pulumi-equinix v0.0.0-20220721093736-de7d9af4bfcc
+	github.com/pulumi/pulumi/sdk/v3 v3.35.3
+)
 
 require (
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
@@ -32,6 +35,7 @@ require (
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
+	github.com/spf13/cast v1.3.1 // indirect
 	github.com/spf13/cobra v1.4.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/src-d/gcfg v1.4.0 // indirect

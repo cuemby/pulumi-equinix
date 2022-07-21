@@ -19,6 +19,7 @@ WORKING_DIR     := $(shell pwd)
 
 OS := $(shell uname)
 EMPTY_TO_AVOID_SED := ""
+RELEASE_MSG := "chore: releasing version ${VERSION}"
 
 prepare::
 	@if test -z "${NAME}"; then echo "NAME not set"; exit 1; fi
@@ -124,3 +125,10 @@ install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 test::
 	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h
 
+release:
+	git add .
+	git commit -s -am "${RELEASE_MSG}"
+	git tag -s -a v$$(pulumictl get version -o) -m "${RELEASE_MSG}"
+	git tag -s -a sdk/v$$(pulumictl get version -o) -m "${RELEASE_MSG}"
+	git push origin --all
+	git push origin --tags
