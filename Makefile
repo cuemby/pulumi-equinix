@@ -127,8 +127,8 @@ test::
 
 release:
 	git add .
-	git commit -s -am "${RELEASE_MSG}"
-	git tag -s -a v$$(pulumictl get version -o) -m "${RELEASE_MSG}"
-	git tag -s -a sdk/v$$(pulumictl get version -o) -m "${RELEASE_MSG}"
+	git commit -s -am ${RELEASE_MSG}
+	git tag -s -a v$$(pulumictl get version -o) -m ${RELEASE_MSG}
+	git tag -s -a sdk/v$$(pulumictl get version -o) -m ${RELEASE_MSG}
 	git push origin --all
 	git push origin --tags
