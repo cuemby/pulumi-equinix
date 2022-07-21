@@ -127,6 +127,6 @@ test::
 
 release:
 	git tag -s -a $(version) -m ${RELEASE_MSG}
-	git tag -s -a sdk/v$(version) -m ${RELEASE_MSG}
+	git tag -s -a sdk/$(version) -m ${RELEASE_MSG}
 	git push origin --all
 	git push origin --tags
