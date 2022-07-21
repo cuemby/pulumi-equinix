@@ -1,0 +1,3 @@
+name: equinix-example
+runtime: go
+description: A minimal Go Pulumi program
