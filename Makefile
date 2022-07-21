@@ -19,7 +19,7 @@ WORKING_DIR     := $(shell pwd)
 
 OS := $(shell uname)
 EMPTY_TO_AVOID_SED := ""
-RELEASE_MSG := "chore: releasing version ${VERSION}"
+RELEASE_MSG := "chore: releasing version $(shell pulumictl get version -o)"
 
 prepare::
 	@if test -z "${NAME}"; then echo "NAME not set"; exit 1; fi
